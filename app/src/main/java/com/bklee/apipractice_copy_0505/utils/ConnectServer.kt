@@ -111,7 +111,7 @@ class ConnectServer {
             title: String,
             phoneNum: String,
             content: String,
-            handler: JsonReposeHandler?
+            handler: Any
         ) {
 
             val client = OkHttpClient()
