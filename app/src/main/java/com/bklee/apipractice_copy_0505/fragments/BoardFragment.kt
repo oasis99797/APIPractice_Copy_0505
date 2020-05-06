@@ -33,13 +33,26 @@ class BoardFragment : BaseFragment() {
         setValues()
     }
 
+    override fun setupEvents() {
+        postBtn.setOnClickListener {
+            val myIntent = Intent(mContext, EditPostActivity::class.java)
+            startActivity(myIntent)
+        }
+    }
+
+    override fun setValues() {
+        postAdapter = PostAdapter(mContext, R.layout.post_list_item, posts)
+        postListView.adapter = postAdapter
+    }
+
     override fun onResume() {
         super.onResume()
 
-
+        getPostsFromServer()
     }
 
     fun getPostsFromServer() {
+
         ConnectServer.getRequestPostList(mContext, object : ConnectServer.JsonReposeHandler{
             override fun onResponse(json: JSONObject) {
 
@@ -69,18 +82,4 @@ class BoardFragment : BaseFragment() {
             }
         })
     }
-
-    override fun setupEvents() {
-        postBtn.setOnClickListener {
-            val myIntent = Intent(mContext, EditPostActivity::class.java)
-            startActivity(myIntent)
-        }
-    }
-
-    override fun setValues() {
-        postAdapter = PostAdapter(mContext, R.layout.post_list_item, posts)
-        postListView.adapter = postAdapter
-    }
-
-
 }
