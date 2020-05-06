@@ -39,7 +39,7 @@ class LoginActivity : BaseActivity() {
 
                         val data = json.getJSONObject("data")
                         val user = json.getJSONObject("user")
-                        val token = json.getJSONObject("token")
+                        val token = json.getString("token")
 
                         val newLoginUser = User.getUserFromJasonObject(user)
 

@@ -9,7 +9,7 @@ class ContextUtil {
         val prefname = "APIPracticePreference"
         val USER_TOKEN ="USER_TOKEN"
 
-        fun setUserToken(context: Context, token: JSONObject) {
+        fun setUserToken(context: Context, token: String) {
             val pref = context.getSharedPreferences(prefname, Context.MODE_PRIVATE)
             pref.edit().putString(USER_TOKEN, token).apply()
         }

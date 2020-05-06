@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bklee.apipractice_copy_0505.EditPostActivity
 import com.bklee.apipractice_copy_0505.R
 import com.bklee.apipractice_copy_0505.adapters.PostAdapter
 import com.bklee.apipractice_copy_0505.datas.Post
@@ -77,7 +78,7 @@ class BoardFragment : BaseFragment() {
     }
 
     override fun setValues() {
-        postAdapter = PostAdapter(mContext, R.layout.post_list_item)
+        postAdapter = PostAdapter(mContext, R.layout.post_list_item, posts)
         postListView.adapter = postAdapter
     }
 
